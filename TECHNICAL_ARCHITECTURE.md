@@ -302,7 +302,7 @@ Active research discussions with:
 - **Dr. Mohan Zalake**, V-ARE Lab, University of Illinois Chicago — healthcare simulation evaluation methodology
 - **Rising Star SPED Academy**, San Jose, CA — accessibility-focused education pilot
 
-For research collaboration or feedback on this working paper, contact: [your email]
+For research collaboration or feedback on this working paper, contact: smittal992@gmail.com
 
 ---
 
