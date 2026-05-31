@@ -1,117 +1,47 @@
-# Open Evaluation Infrastructure for AI-Powered Immersive Training Systems
-## A Technical Framework and Research Agenda
-### Shivam Mittal | smittal992@gmail.com | 05/25/2026
-### Working Paper — Version 0.1
+# Open Immersive Training Evaluation Framework
+
+Open, platform-independent AI evaluation and accessibility infrastructure
+for institutional VR/AR training systems.
+
+**Author:** Shivam Mittal (independent research)  
+**Status:** Working Paper v0.1 — May 2026
 
 ---
 
-## Abstract
+## The Problem
 
-Immersive VR and AR training systems have demonstrated measurable value across healthcare simulation, workforce reskilling, and accessible education. Despite this, institutional adoption at national scale has remained limited. This paper argues that the primary barrier is not technological immaturity but the absence of open, platform-independent infrastructure for measuring training interaction quality and competency outcomes in ways that external credentialing bodies, regulatory agencies, and multi-site institutions can use and compare. I propose a research agenda to develop this infrastructure: an open system comprising a natural interaction layer, a structured outcome measurement framework, and an accessibility-first design that reduces physical interface barriers. I describe the technical components, the design principles, and the institutional deployment model. This working paper is circulated to solicit feedback from researchers and institutional partners.
+VR training systems deployed in U.S. healthcare, workforce development,
+and special education programs generate performance data in proprietary
+formats that cannot be compared across platforms, submitted to
+credentialing bodies, or integrated into institutional HR and
+accreditation workflows. Additionally, most VR systems require controller
+precision that users with motor, sensory, or cognitive differences cannot
+reliably provide.
 
----
+## The Framework
 
-## 1. The Problem
+Three open, platform-independent components:
 
-The United States Department of Labor, the Health Resources and Services Administration, and the Department of Veterans Affairs have each endorsed immersive simulation training as a mechanism for addressing workforce and clinical training shortfalls. The technology has reached a level of maturity where this endorsement is credible. VR headset costs have fallen dramatically. Content quality has improved substantially. Large employers, healthcare systems, and workforce programs have run pilots.
+| Component | What it does |
+|---|---|
+| **NIL** — Natural Interaction Layer | Interprets voice, gesture, gaze, and behavioral signals — no controller precision required |
+| **SOMF** — Structured Outcome Measurement Framework | Generates xAPI-compatible portable competency records any institution can consume |
+| **ACL** — Accessibility Compliance Layer | WCAG 2.1 Level AA compliance testing and ADA Title II documentation |
 
-Those pilots routinely fail to scale into durable institutional programs — not because the technology underperforms, but because the output of VR training is not currently legible to the institutional systems that make credentialing, hiring, and compliance decisions.
+## Documentation
 
-Every VR training system produces performance records in its own format, defined by its own metrics, anchored to its own internal standards. These records cannot be compared across systems, submitted to external credentialing bodies, integrated into HR management platforms, or used as regulatory evidence of workforce readiness. An institution that trains a nurse using System A and another that trains a nurse using System B cannot compare outcomes. A workforce development board that funds VR-based reskilling cannot produce outcome data that a certification body will recognize. A hospital system that deploys VR for procedural simulation cannot submit training records to its accrediting body.
+- [Technical Architecture — Working Paper v0.1](TECHNICAL_ARCHITECTURE.md)
 
-This is a measurement infrastructure problem. It is not a problem any single VR company has commercial incentive to solve, because a truly open, platform-independent measurement standard would benefit competing platforms equally. It therefore requires independent research.
+## Standards
 
----
+xAPI (ADL) · IMS Global CASE · IEEE P2048 · WCAG 2.1 Level AA ·
+DOJ ADA Title II (April 2024) · W3C XR Accessibility User Requirements
 
-## 2. The Proposed Framework
+## Status
 
-I propose developing three interoperable components:
+Early-stage working paper. Architecture and schemas specified.
+Reference implementations in progress.
 
-### 2.1 Natural Interaction Layer (NIL)
+## Contact
 
-Current VR training systems require precise physical controller input, limiting access for users with motor impairments, sensory differences, or physical disabilities. The NIL is a middleware system that interprets user intent through natural communication channels — voice, gesture, gaze, and behavioral cues — and translates that intent into VR system inputs without requiring controller precision.
-
-**Core technical components:**
-- Multimodal intent classification: a model ensemble that interprets concurrent speech, hand motion, and gaze signals and resolves them into a structured intent representation with a confidence score
-- Uncertainty handling: when intent confidence falls below threshold, the system requests clarification through the least disruptive available modality rather than executing a low-confidence action
-- Safe fallback behaviors: a predefined set of neutral-state actions the system executes when intent cannot be resolved, preventing training disruption
-- Calibration protocol: an adaptive baseline-setting process that accounts for individual variation in movement range, speech patterns, and sensory processing
-
-**Design principle:** The NIL is designed as a software layer that can be implemented above any VR platform's native input system, operating on processed sensor data rather than raw hardware inputs. This architecture allows it to function independently of platform-specific APIs.
-
-### 2.2 Structured Outcome Measurement Framework (SOMF)
-
-The SOMF is a schema and associated tooling for recording, structuring, and exporting training performance data in formats compatible with external evaluation requirements.
-
-**Core technical components:**
-- Event telemetry capture: timestamped recording of trainee actions, system states, and environmental conditions during training sessions
-- Competency mapping: a configurable schema that maps raw event telemetry to competency dimensions defined by the training domain (e.g., procedural steps in a clinical simulation, safety protocols in a manufacturing context)
-- Standardized output format: a JSON-LD schema for structured competency records, designed for compatibility with xAPI (Experience API / Tin Can) and IMS Global standards already adopted in some credentialing contexts
-- Remediation signals: automated identification of performance patterns associated with skill gaps, structured for use by instructors in targeted remediation planning
-
-**Design principle:** The SOMF is designed to be configurable by domain without altering its core data structure. A healthcare institution and a workforce training program can define different competency frameworks while producing records in a format that the same external evaluation tools can process.
-
-### 2.3 Accessibility Compliance Layer (ACL)
-
-The ACL is a design specification and testing protocol ensuring that VR training systems implementing the NIL and SOMF satisfy ADA and WCAG accessibility standards as applied to immersive environments.
-
-**Core components:**
-- Input modality redundancy: every training interaction must be completable through at least two distinct input modalities (e.g., voice and gaze; gesture and switch-access)
-- Sensory accommodation: configurable display, audio, and haptic parameters to accommodate visual and auditory processing differences
-- Compliance documentation: automated generation of accessibility conformance records as part of the SOMF output structure
-
----
-
-## 3. Research Plan
-
-### Phase 1 (Q3–Q4 2026): Architecture and Pilot Design
-- Finalize technical specifications for NIL, SOMF, and ACL components
-- Identify 2–3 institutional pilot partners across healthcare, workforce, and special education domains
-- Establish research collaboration agreements with academic partners for evaluation methodology co-development
-- Submit architecture documentation for peer review via workshop or preprint
-
-### Phase 2 (Q1–Q2 2027): Prototype Development and Initial Evaluation
-- Develop NIL prototype implementing voice and gesture intent classification
-- Develop SOMF prototype with configurable competency schema and xAPI-compatible output
-- Deploy in controlled pilot settings at 1–2 partner institutions
-- Collect evaluation data on interaction quality, outcome measurement accuracy, and institutional usability
-
-### Phase 3 (Q3–Q4 2027): Refinement and Dissemination
-- Refine components based on pilot evaluation findings
-- Publish findings in peer-reviewed venue
-- Release open documentation supporting institutional and researcher adoption
-- Engage with relevant standards bodies (IEEE, IMS Global, xAPI community) on integration pathways
-
----
-
-## 4. Institutional Partners and Collaborators
-
-This research is designed to be developed in collaboration with institutional partners across sectors. Current discussions are underway with:
-
-- **V-ARE Lab, University of Illinois Chicago** (Dr. Mohan Zalake): Healthcare VR training evaluation methodology and clinical deployment
-- **Rising Star SPED Academy, San Jose, CA**: Special education deployment for students with autism — accessibility evaluation
-
-Additional academic and healthcare institution partnerships are being developed.
-
----
-
-## 5. Note on Independence
-
-This research agenda is being developed independently of my current employment. The proposed framework is designed as open infrastructure — not as a product for any employer — and its value depends on its independence from any single commercial interest. All research activities described here are conducted on my own time, using my own resources, and will be disseminated publicly.
-
----
-
-## References
-
-[1] U.S. Department of Labor. "Apprenticeship and Registered Apprenticeship." Employment and Training Administration.
-[2] Health Resources and Services Administration. "Health Workforce Shortage Areas." HRSA Data Warehouse, 2025.
-[3] White House Office of Science and Technology Policy. "Critical and Emerging Technologies List Update." February 2024.
-[4] xAPI Specification, ADL Initiative. https://adlnet.gov/projects/xapi/
-[5] IMS Global Learning Consortium. Competencies and Academic Standards Exchange (CASE) Framework.
-[6] Bihorac, A. et al. "MySurgeryRisk: Development and Validation of a Machine-Learning Risk Algorithm for Major Complications and Death after Surgery." Annals of Surgery, 2019.
-
----
-
-*This is a working paper circulated for feedback. Comments and collaboration inquiries welcome at smittal992@gmail.com.*
-
-*Version 0.1 | 05/25/2026*
+[your email] | [LinkedIn: linkedin.com/in/shmittal-uf]
