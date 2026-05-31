@@ -1,47 +1,38 @@
-# Open Immersive Training Evaluation Framework
+# Open Evaluation Infrastructure for AI-Powered Immersive Training Systems
 
 Open, platform-independent AI evaluation and accessibility infrastructure
 for institutional VR/AR training systems.
 
-**Author:** Shivam Mittal (independent research)  
+**Author:** Shivam Mittal | smittal992@gmail.com  
 **Status:** Working Paper v0.1 — May 2026
 
 ---
 
-## The Problem
+## Overview
 
-VR training systems deployed in U.S. healthcare, workforce development,
-and special education programs generate performance data in proprietary
-formats that cannot be compared across platforms, submitted to
-credentialing bodies, or integrated into institutional HR and
-accreditation workflows. Additionally, most VR systems require controller
-precision that users with motor, sensory, or cognitive differences cannot
-reliably provide.
+VR training systems deployed across U.S. healthcare, workforce development,
+and special education programs cannot produce competency records that
+credentialing bodies, accreditors, or multi-site institutions can compare
+or use. This project proposes open infrastructure to address that gap.
 
-## The Framework
+**Three components:**
 
-Three open, platform-independent components:
-
-| Component | What it does |
+| Component | Function |
 |---|---|
-| **NIL** — Natural Interaction Layer | Interprets voice, gesture, gaze, and behavioral signals — no controller precision required |
-| **SOMF** — Structured Outcome Measurement Framework | Generates xAPI-compatible portable competency records any institution can consume |
-| **ACL** — Accessibility Compliance Layer | WCAG 2.1 Level AA compliance testing and ADA Title II documentation |
+| **NIL** — Natural Interaction Layer | Voice, gesture, gaze interpretation — no controller precision required |
+| **SOMF** — Structured Outcome Measurement Framework | xAPI-compatible portable competency records across any VR platform |
+| **ACL** — Accessibility Compliance Layer | WCAG 2.1 Level AA compliance documentation for ADA Title II obligations |
 
 ## Documentation
 
-- [Technical Architecture — Working Paper v0.1](TECHNICAL_ARCHITECTURE.md)
+[Working Paper v0.1](WHITEPAPER_v2.md) — full framework description,
+technical specification, research plan, and institutional partners.
 
-## Standards
+## Institutional Collaborators
 
-xAPI (ADL) · IMS Global CASE · IEEE P2048 · WCAG 2.1 Level AA ·
-DOJ ADA Title II (April 2024) · W3C XR Accessibility User Requirements
-
-## Status
-
-Early-stage working paper. Architecture and schemas specified.
-Reference implementations in progress.
+- **V-ARE Lab, University of Illinois Chicago** (Dr. Mohan Zalake)
+- **Rising Star SPED Academy**, San Jose, CA
 
 ## Contact
 
-[your email] | [LinkedIn: linkedin.com/in/shmittal-uf]
+smittal992@gmail.com | [LinkedIn](https://www.linkedin.com/in/shmittal-uf/)
